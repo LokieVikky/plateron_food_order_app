@@ -2,15 +2,14 @@
 
 This is an interview question for a  Flutter Developer
 
-## Getting Started
+## Description
 
-This project is a starting point for a Flutter application.
+This app is a example of the Flutter Bloc Pattern.
 
-A few resources to get you started if this is your first Flutter project:
+The food menu and cart page were developed with Flutter BloC in this app.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Output
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+https://github.com/LokieVikky/plateron_food_order_app/assets/39190989/e07328c9-64e8-45c4-ac8a-36f8511aa103
+
+
