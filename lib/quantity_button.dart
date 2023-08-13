@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 abstract class QuantityEvent {}
@@ -16,10 +17,12 @@ class QuantityBloc extends Bloc<QuantityEvent, int> {
   }
 
   void _onIncrement(QuantityEvent event, Emitter<int> emit) {
+    HapticFeedback.lightImpact();
     emit(state + 1);
   }
 
   void _onDecrement(QuantityEvent event, Emitter<int> emit) {
+    HapticFeedback.lightImpact();
     emit(state - 1);
   }
 }

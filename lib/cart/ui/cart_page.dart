@@ -48,45 +48,47 @@ class CartPage extends StatelessWidget {
   }
 
   Widget _buildFooter(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
-            spreadRadius: 0.1,
-            blurRadius: 0.1,
-            offset: const Offset(0, -1), // This creates a top shadow.
-          ),
-        ],
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text(
-              'Total',
-              style: TextStyle(color: Color(0xff464645), fontSize: 18, fontWeight: FontWeight.w500),
-            ),
-            BlocBuilder<CartBloc, List<CartItem>>(
-              builder: (context, state) {
-                if (state.isNotEmpty) {
-                  double totalAmount = 0;
-                  for (CartItem cartItem in state) {
-                    double price = double.parse(cartItem.food.price ?? '0');
-                    totalAmount = totalAmount + (price * cartItem.quantity);
-                  }
-                  return Text('\$ $totalAmount',
-                      style: const TextStyle(
-                          color: Color(0xff464645), fontSize: 18, fontWeight: FontWeight.w500));
-                }
-                return const Text('\$ 0',
-                    style: TextStyle(
-                        color: Color(0xff464645), fontSize: 18, fontWeight: FontWeight.w500));
-              },
+    return SafeArea(
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.2),
+              spreadRadius: 0.1,
+              blurRadius: 0.1,
+              offset: const Offset(0, -1), // This creates a top shadow.
             ),
           ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                'Total',
+                style: TextStyle(color: Color(0xff464645), fontSize: 18, fontWeight: FontWeight.w500),
+              ),
+              BlocBuilder<CartBloc, List<CartItem>>(
+                builder: (context, state) {
+                  if (state.isNotEmpty) {
+                    double totalAmount = 0;
+                    for (CartItem cartItem in state) {
+                      double price = double.parse(cartItem.food.price ?? '0');
+                      totalAmount = totalAmount + (price * cartItem.quantity);
+                    }
+                    return Text('\$ $totalAmount',
+                        style: const TextStyle(
+                            color: Color(0xff464645), fontSize: 18, fontWeight: FontWeight.w500));
+                  }
+                  return const Text('\$ 0',
+                      style: TextStyle(
+                          color: Color(0xff464645), fontSize: 18, fontWeight: FontWeight.w500));
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
